@@ -26,7 +26,7 @@ exports.createPost = (req, res, next) => {
 exports.updatePost = (req,res,next) => {
   let imagePath = req.body.image; // not updating image here and upoading it.(default image path)
   if(req.file){
-    const url = req.protocol + '://' + req.get("host");
+    const url = req.protocol + 's' + '://' + req.get("host");
     imagePath = url + "/images/" + req.file.filename;  // updating image and then uploading it.
   }
   const post = new Post({
