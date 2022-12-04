@@ -18,7 +18,7 @@ mongoose.connect("mongodb+srv://Tanmoy23:" + process.env.MONGO_ATLAS_PASSWORD + 
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
-app.use("/images", express.static(path.join("images")));
+app.use("/images", express.static(path.join(__dirname, "images")));
 
 app.use((req,res,next) => {
 
