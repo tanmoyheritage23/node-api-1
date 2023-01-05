@@ -19,7 +19,7 @@ exports.createUser = (req,res,next) => {
   })
   .catch(err =>{
       res.status(500).json({
-        message: "email already exists!",
+        message: "email already exists. Try another email",
         error: err
       });
     });
@@ -36,7 +36,7 @@ exports.createUser = (req,res,next) => {
     .then(user =>{
       if(!user){
         return res.status(401).json({
-          message: "Authentication failed!" // Authentication failed because user entered a wrong email which does not exist in the database.
+          message: "Invalid username or password. Please try again" // Authentication failed because user entered a wrong email which does not exist in the database.
         });
       }
       fetchedUser = user;
@@ -45,7 +45,7 @@ exports.createUser = (req,res,next) => {
     .then(result =>{
       if(!result){
         return res.status(401).json({
-          message: "Authentication failed!"
+          message: "Invalid username or password. Please try again"
         });
       }
       // User credentials are validated and we are creating token
@@ -59,7 +59,7 @@ exports.createUser = (req,res,next) => {
     })
     .catch(err =>{
       return res.status(401).json({
-        message: "Authentication failed!"
+        message: "Invalid username or password. Please try again"
       });
     })
   };
