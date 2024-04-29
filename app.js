@@ -7,6 +7,8 @@ const userRouter = require("./routes/user");
 
 const app = express();
 
+const port = process.env.PORT || 3000;
+
 mongoose.connect("mongodb+srv://Tanmoy23:" + process.env.MONGO_ATLAS_PASSWORD + "@cluster0.ued66gq.mongodb.net/node-angular?retryWrites=true&w=majority")
 .then(() => {
   console.log("connected to MongoDB");
@@ -39,5 +41,8 @@ app.use("/api/user", userRouter);
 //   res.sendFile(path.join(__dirname, "../dist/momenta/index.html"));
 // });
 
+app.listen(port,()=>{
+  console.log(`Server is running on ${port}`);
+}
 
 module.exports = app;
