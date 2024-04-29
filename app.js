@@ -33,7 +33,7 @@ app.use((req,res,next) => {
 
 
 app.use("/api/posts", postRouter);
-app.use("/api/user", userRouter);
+app.use("/api/users", userRouter);
 
 // app.use("/", express.static(path.join(__dirname, "../dist/momenta")));
 
