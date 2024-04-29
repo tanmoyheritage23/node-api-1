@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const postRouter = require("./routes/posts");
 const userRouter = require("./routes/user");
+const cors = require("cors");
 
 const app = express();
 
@@ -17,7 +18,7 @@ mongoose.connect("mongodb+srv://Tanmoy23:" + process.env.MONGO_ATLAS_PASSWORD + 
   console.log("connection failed!");
 });
 
-
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use("/images", express.static(path.join("images")));
@@ -33,7 +34,7 @@ app.use((req,res,next) => {
 
 
 app.use("/api/posts", postRouter);
-app.use("/api/users", userRouter);
+app.use("/api/user", userRouter);
 
 // app.use("/", express.static(path.join(__dirname, "../dist/momenta")));
 
