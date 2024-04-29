@@ -12,7 +12,5 @@
       "dest": "/"
     }
   ],
-  {
   "buildCommand": "node server.js"
-}
 }
