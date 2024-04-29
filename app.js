@@ -41,6 +41,11 @@ app.use("/api/users", userRouter);
 //   res.sendFile(path.join(__dirname, "../dist/momenta/index.html"));
 // });
 
+app.use((err,req,res,next) => {
+  console.log("Error found :", err)
+});
+
+
 app.listen(port,()=>{
   console.log(`Server is running on ${port}`);
 });
