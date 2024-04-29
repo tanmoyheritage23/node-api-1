@@ -2,6 +2,9 @@
   "name": "momenta",
   "version": "0.0.0",
   "private": true,
+  "scripts":{
+    "start": "node server.js"
+  },  
   "dependencies": {
     "bcrypt": "^5.1.0",
     "bcryptjs": "^2.4.3",
